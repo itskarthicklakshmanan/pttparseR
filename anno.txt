@@ -1,0 +1,4 @@
+start	end	annotation
+1500	3200	anno1
+3600	4800	anno2
+6000	7300	anno3
