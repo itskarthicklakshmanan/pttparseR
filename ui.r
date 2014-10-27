@@ -40,13 +40,13 @@ shinyUI(navbarPage("Visualize PTT files",
 	
 	actionButton("url_ptt1", "Run")
       ),
-      mainPanel(div(class = "busy", p("Calculation in progress.."), img(src="progress.gif")),
+      mainPanel(div(class = "busy", p("Calculation in progress.."), img(src="https://cloud.githubusercontent.com/assets/1396943/4787758/46c8a214-5db0-11e4-854a-1e6a66738aec.gif")),
         dataTableOutput("table")
       )
     )
   ),
   tabPanel("Plot",tags$style(type='text/css', "#plot { min-height: 550px; }"),tags$style(type='text/css', "#track { min-height: 250px; }"),
-  div(class = "busy", p("Calculation in progress.."), img(src="progress.gif")),
+  div(class = "busy", p("Calculation in progress.."), img(src="https://cloud.githubusercontent.com/assets/1396943/4787758/46c8a214-5db0-11e4-854a-1e6a66738aec.gif")),
       plotOutput("plot"),fluidRow(column(2,textInput("pc","Plus strand color","red")),column(2,textInput("mc","minus strand color","blue"))),
 	  fluidRow(column(2,numericInput("gstart","Genome start",1000)),column(2,numericInput("gend","Genome end",8000))),
     
