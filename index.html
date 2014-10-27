@@ -31,8 +31,8 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="pttparser" class="anchor" href="#pttparser"><span class="octicon octicon-link"></span></a>pttparseR</h3>
+        <h2>
+<a name="pttparser" class="anchor" href="#pttparser"><span class="octicon octicon-link"></span></a>pttparseR</h2>
 
 <p>R and Shiny based web interface to parse .ptt file specific to bacterial genomes.</p>
 
@@ -40,14 +40,29 @@
 R &gt; library(shiny)
 </code></pre>
 
-<p>Next you can download and run your app pttparseR directly.</p>
+<p>Next you can download and run your app pttparseR directly.
+Easiest way is to use runGitHub</p>
 
-<pre><code>R &gt; shiny::runGitHub('pttparseR', 'karthicklakshman')
+<pre><code>R &gt; runGitHub('pttparseR', 'karthicklakshman')
 </code></pre>
 
-<p>or download pttparseR from github as zip to your computer and extract the pttparseR folder to run it</p>
+<p>Run a tar or zip file directly</p>
 
-<pre><code>R &gt; shiny::runApp('path to directory/pttparseR')
+<pre><code>R &gt; runUrl("https://github.com/karthicklaksman/pttparseR/archive/master.tar.gz") 
+R &gt; runUrl("https://github.com/karthicklaksman/pttparseR/archive/master.zip")
+</code></pre>
+
+<p>Or you can clone the git repository, then use runApp():
+First clone the repository with git.
+If you have cloned it into ~/pttparseR, first go to that directory, then use runApp(). </p>
+
+<pre><code>R &gt; setwd("~/pttparseR") 
+R &gt; runApp()
+</code></pre>
+
+<p>or download pttparseR from github as zip to your computer and extract the pttparseR to a directory and run it</p>
+
+<pre><code>R &gt; runApp('path to directory/pttparseR')
 </code></pre>
 
 <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
