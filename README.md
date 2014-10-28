@@ -10,8 +10,6 @@ Shiny package installed in R
 
 library(shiny)
 
-### Easiest way is to use runGitHub
-runGitHub("pttparseR", "karthicklakshman")
 
 ### Run a tar or zip file directly
 runUrl("https://github.com/karthicklaksman/pttparseR/archive/master.tar.gz")
