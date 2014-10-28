@@ -13,13 +13,17 @@ shinyServer(function(input, output,session) {
 
 
 pttdata<-reactive({ 
- if(input$url_ptt1==0){return()}
-  if(input$url_ptt==0){return()}
+ if(input$url_ptt1==0){return(NULL)}
+  if(input$url_ptt==0){return(NULL)}
   
 input$url_ptt1
 isolate({
 if(input$link_choice=='Url Link'){
-  con<-url(paste("ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/",input$url_ptt,sep=""))}else{
+if(length(grep(pattern ='/(.*[a-z]*?).ptt',input$url_ptt))!=0){
+  p2t <- strsplit(input$url_ptt, ".", fixed = TRUE)}else{stop(print("add complete link in the text box, example: Acaryochloris_marina_MBIC11017_uid58167/NC_009930.ptt"))}
+   if(sapply(p2t, "[", 2)!="ptt"){stop(print("add complete link, example: Acaryochloris_marina_MBIC11017_uid58167/NC_009930.ptt"))}
+   else if(sapply(p2t, "[", 2)=="ptt"){
+  con<-url(paste("ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/",input$url_ptt,sep=""))}else{return(NULL)}}else{
   inFile <- input$file1
 
     if (is.null(inFile))
@@ -28,7 +32,7 @@ if(input$link_choice=='Url Link'){
     con<-file(inFile$datapath)
     
   }
-  
+
 ptt <- readLines(con)
 close(con)
 zz <- textConnection(ptt[-(1:2)])
@@ -45,7 +49,8 @@ x$gene[x$gene == "-"] <- NA
 x<-data.frame(x[,c(6,10,11,2,9)])})})
 
   output$table<- renderDataTable({ 
-pttdata()
+   if(input$url_ptt1==0){return(NULL)}
+ptt<-pttdata()
 
     },options = list(aLengthMenu = c(5, 10, 15,20,25,50), iDisplayLength = 5))
 	
@@ -73,7 +78,7 @@ pttdata()
   )
 	
   output$plot<- renderPlot({ 
-  
+   if(input$url_ptt1==0){return(NULL)}
   	if (input$execute==0){ return()}
 	input$execute
 
@@ -173,3 +178,4 @@ text((annot2$start+annot2$end)/2,-8.4,labels=annot2$ann,cex = 1, srt = 0,col = "
 
     })	    }) 	
 })
+
