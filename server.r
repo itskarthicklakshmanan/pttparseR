@@ -60,7 +60,17 @@ pttdata()
 	updateNumericInput(session=session, "gend", value=8000)
 	})})
 	
-	
+  output$downloadData <- downloadHandler(
+    filename = function() {
+		  paste("pttparseR_dataset", input$filetype, sep = ".")
+	  },
+    content = function(file) {
+      sep <- switch(input$filetype, "csv" = ",", "txt" = "\t")
+
+      write.table(pttdata(), file, sep = sep,
+        row.names = FALSE)
+    }
+  )
 	
   output$plot<- renderPlot({ 
   
@@ -163,4 +173,3 @@ text((annot2$start+annot2$end)/2,-8.4,labels=annot2$ann,cex = 1, srt = 0,col = "
 
     })	    }) 	
 })
-
