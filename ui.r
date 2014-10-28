@@ -38,7 +38,10 @@ shinyUI(navbarPage("Visualize PTT files",
 								 'text/comma-separated-values,text/plain', 
 								 '.csv'))),
 	
-	actionButton("url_ptt1", "Run")
+	actionButton("url_ptt1", "Run"),conditionalPanel(
+    condition = "input.url_ptt1",    hr(), radioButtons("filetype", "File type:",
+                   choices = c("csv", "txt")),
+      downloadButton('downloadData', 'Download'))
       ),
       mainPanel(div(class = "busy", p("Calculation in progress.."), img(src="https://cloud.githubusercontent.com/assets/1396943/4787758/46c8a214-5db0-11e4-854a-1e6a66738aec.gif")),
         dataTableOutput("table")
