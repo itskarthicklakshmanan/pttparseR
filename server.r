@@ -23,7 +23,7 @@ if(length(grep(pattern ='/(.*[a-z]*?).ptt',input$url_ptt))!=0){
   p2t <- strsplit(input$url_ptt, ".", fixed = TRUE)}else{stop(print("add complete link in the text box, example: Acaryochloris_marina_MBIC11017_uid58167/NC_009930.ptt"))}
    if(sapply(p2t, "[", 2)!="ptt"){stop(print("add complete link, example: Acaryochloris_marina_MBIC11017_uid58167/NC_009930.ptt"))}
    else if(sapply(p2t, "[", 2)=="ptt"){
-  con<-url(paste("ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/",input$url_ptt,sep=""))}else{return(NULL)}}else{
+  con<-url(paste("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/",input$url_ptt,sep=""))}else{return(NULL)}}else{
   inFile <- input$file1
 
     if (is.null(inFile))
