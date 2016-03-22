@@ -26,7 +26,7 @@ runApp()
 ### GUI Usage help:
 
 Copy paste ptt file link with organism folder from ncbi ftp site.
-go to site: ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/
+go to site: ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/
 
 Paste the organism directory and ptt file line as shown below, in the add link text box
 Acaryochloris_marina_MBIC11017_uid58167/NC_009930.ptt
